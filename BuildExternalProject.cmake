@@ -4,7 +4,7 @@ macro (BuildExternalProject_find_package target)
   # Set CMake prefix path so we can look there for the module
   set(_CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH})
   mark_as_advanced(_CMAKE_PREFIX_PATH)
-  list(APPEND CMAKE_PREFIX_PATH ${build_dir})
+  list(PREPEND CMAKE_PREFIX_PATH ${build_dir})
 
   find_package(${target} MODULE QUIET)
   if (NOT ${target}_FOUND)
